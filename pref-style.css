@@ -1,31 +1,50 @@
-/* ===== Hero Section ===== */
-.pref-hero {
-  height: 300px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
+/* pref.css — シンプルで見た目整える */
+:root{
+  --bg:#f7f8fb;
+  --card:#fff;
+  --accent:#2b8cff;
+  --muted:#666;
 }
 
-/* 県ごとに背景を変える（後でひなちゃんが好きに設定） */
-.pref-hokkaido .pref-hero {
-  background-image: url("../images/pref/hokkaido.jpg");
-}
-.pref-aomori .pref-hero {
-  background-image: url("../images/pref/aomori.jpg");
-}
-/* 他の県も同じ形式で追加していく */
-
-/* ===== Content ===== */
-.pref-description {
-  min-height: 180px;
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+body{
+  font-family: "Noto Sans JP", system-ui, sans-serif;
+  background: var(--bg);
+  color:#222;
+  margin:0;
 }
 
-h2 {
-  font-weight: 700;
-  color: #333;
+/* nav */
+.site-nav{background:#fff;box-shadow:0 1px 6px rgba(0,0,0,0.06);}
+.site-nav .container{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;}
+.site-nav .brand{font-weight:700;color:var(--accent);text-decoration:none;}
+.site-nav .links a{margin-left:12px;color:#333;text-decoration:none;font-size:0.95rem;}
+
+/* hero */
+.pref-hero{
+  height:220px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:linear-gradient(180deg, rgba(43,140,255,0.08), rgba(255,255,255,0));
 }
+.pref-hero .hero-inner h1{font-size:2rem;margin:0 0 8px;}
+.pref-hero .subtitle{color:var(--muted);margin:0}
+
+/* grid */
+.container{max-width:1100px;margin:0 auto;padding:0 16px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;}
+
+/* card */
+.card-item .card{background:var(--card);border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(20,30,50,0.04);display:flex;flex-direction:column;height:100%;}
+.thumb img{width:100%;height:160px;object-fit:cover;display:block;}
+.card-body{padding:14px;flex:1;display:flex;flex-direction:column;}
+.card-title{font-size:1.05rem;margin:0 0 6px;}
+.card-pref{color:var(--muted);font-size:0.9rem;margin:0 0 8px;}
+.card-tags{margin-top:auto;}
+.tag{background:#eef6ff;border:none;padding:6px 8px;border-radius:999px;margin-right:6px;color:var(--accent);cursor:pointer;font-size:0.8rem;}
+.card-cta{text-align:right;margin-top:12px;}
+.btn{background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none;display:inline-block;font-size:0.9rem}
+
+/* no-result */
+.no-result{color:var(--muted);text-align:center;padding:30px 0;}
