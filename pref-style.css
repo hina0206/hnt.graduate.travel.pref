@@ -97,18 +97,21 @@ body {
 
 .tag {
   display: inline-block;
-  background-color: #e0f0ff;
-  color: #0077cc;
+  background-color: #ddd;   /* 通常の淡い灰色 */
+  color: #333;              /* 文字は濃いグレー */
+  border: none;             /* 枠線なし */
   border-radius: 12px;
   padding: 0.2rem 0.6rem;
   font-size: 0.8rem;
   margin: 0.1rem;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .tag:hover {
-  background-color: #b3d9ff;
+  background-color: #bbb;   /* hover 時に濃いめの灰色 */
 }
+
 
 .card-cta {
   margin-top: 0.5rem;
