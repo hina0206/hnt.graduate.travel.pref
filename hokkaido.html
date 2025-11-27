@@ -74,8 +74,8 @@
               ${img}
               <div class="card-body">
                 <h3 class="card-title">${spot.name}</h3>
-                <p class="card-pref">${spot.prefecture}</p>
-                <div class="card-tags">${tags}</div>
+                <p class="card-pref onclick="event.stopPropagation(); window.location.href='https://hina0206.github.io/hnt.graduate.travel.pref/${spot.prefectureRomaji}.html'">${spot.prefecture}</p>
+                <div class="card-tagsonclick="event.stopPropagation(); window.location.href='https://hina0206.github.io/hnt.graduate.travel/tag.html?tag=${encodeURIComponent(tag)}'">${tags}</div>
               </div>
             </div>
           `;
