@@ -47,22 +47,31 @@
           }
 
           filtered.forEach(spot => {
-            const card = document.createElement('div');
-            card.className = 'spot-card';
-            card.onclick = () => { window.location.href = `../spots/${spot.id}.html`; };
-
-            card.innerHTML = `
-              <img src="${spot.mainImage}" alt="${spot.name}">
-              <div class="card-content">
-                <h3>${spot.name}</h3>
-                <p class="pref">${spot.prefecture}</p>
-                <div class="card-tags">
-                  ${spot.tags.map(tag => `<span class="tag" onclick="event.stopPropagation(); window.location.href='../tag.html?tag=${encodeURIComponent(tag)}'">${tag}</span>`).join('')}
-                </div>
+          const col = document.createElement('div');
+          col.className = 'card-item';
+        
+          // 画像パスを GitHub Pages 上の spot リポジトリに合わせる
+          const img = `<div class="thumb"><img src="https://hina0206.github.io/hnt.graduate.travel.spot/images/${spot.id}/main.jpg" alt="${spot.name}"></div>`;
+        
+          // タグバッジ
+          const tags = (spot.tags || []).map(t =>
+            `<button class="tag" onclick="event.stopPropagation(); location.href='https://hina0206.github.io/hnt.graduate.travel/tag.html?tag=${encodeURIComponent(t)}'">${t}</button>`
+          ).join('');
+        
+          col.innerHTML = `
+            <div class="card">
+              ${img}
+              <div class="card-body">
+                <h3 class="card-title">${spot.name}</h3>
+                <p class="card-pref">${spot.prefecture}</p>
+                <div class="card-tags">${tags}</div>
+                <div class="card-cta"><a class="btn" href="../spots/${spot.id}.html">詳細を見る</a></div>
               </div>
-            `;
-            container.appendChild(card);
-          });
+            </div>
+          `;
+          container.appendChild(col);
+        });
+
         })
         .catch(err => {
           console.error(err);
