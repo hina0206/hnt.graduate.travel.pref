@@ -65,7 +65,7 @@
       .then(res => res.json())
       .then(data => {
         const container = document.getElementById('spot-list');
-        const prefectureName = "〇〇県"; // ← ページごとに書き換え
+        const prefectureName = "北海道"; // ← ページごとに書き換え
         const spots = data.filter(s => s.prefecture === prefectureName);
 
         spots.forEach(spot => {
