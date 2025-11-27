@@ -41,43 +41,60 @@ body {
 }
 
 /* スポットカード */
-.spot-grid {
+/* カードグリッド */
+#spot-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  padding: 1rem 0;
 }
-.spot-card {
-  background: #fff;
+
+/* カード全体 */
+.card-item .card {
+  background: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   overflow: hidden;
-  cursor: pointer;
   transition: transform 0.2s;
+  cursor: pointer;
 }
-.spot-card:hover {
+
+.card-item .card:hover {
   transform: translateY(-5px);
 }
-.spot-card img {
+
+/* 画像部分 */
+.card-item .thumb {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  height: 180px; /* 高さ固定 */
+  overflow: hidden;
 }
-.card-content {
+
+.card-item .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 縦横比を保ったまま枠に合わせる */
+  display: block;
+}
+
+/* カード本文 */
+.card-body {
   padding: 0.8rem 1rem;
 }
-.card-content h3 {
+
+.card-title {
   margin: 0.3rem 0;
 }
-.card-content .pref {
+
+.card-pref {
   font-size: 0.9rem;
   color: #666;
 }
+
 .card-tags {
   margin-top: 0.5rem;
 }
+
 .tag {
   display: inline-block;
   background-color: #e0f0ff;
@@ -88,9 +105,36 @@ body {
   margin: 0.1rem;
   cursor: pointer;
 }
+
 .tag:hover {
+  background-color: #b3d9ff;
+}
+
+.card-cta {
+  margin-top: 0.5rem;
+}
+
+.card-cta .btn {
+  display: inline-block;
+  padding: 6px 12px;
   background-color: #4a90e2;
-  color: #fff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.card-cta .btn:hover {
+  background-color: #357ABD;
+}
+
+/* カードがない場合 */
+.no-result {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+  margin-top: 30px;
 }
 
 /* フッター */
