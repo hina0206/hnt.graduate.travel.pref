@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>宮城 - にほん旅ナビ</title>
+  <link rel="stylesheet" href="pref-style.css">
+</head>
+<body data-pref="miyagi">
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="https://hina0206.github.io/hnt.graduate.travel/" class="site-title">にほん旅ナビ</a>
+      <a href="https://hina0206.github.io/hnt.graduate.travel/japan.html" class="nav-link">都道府県から探す</a>
+    </div>
+  </header>
+
+  <!-- 都道府県カバー -->
+  <section class="pref-cover" style="background-image: url('images/miyagi.jpg');">
+    <h1>宮城</h1>
+  </section>
+
+  <!-- スポットカード -->
+  <main>
+    <div id="spot-cards" class="spot-grid"></div>
+  </main>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <p>© にほん旅ナビ</p>
+  </footer>
+
+  <!-- JS: spots.json から該当都道府県カードを生成 -->
+ <script>
+  (function() {
+    const SPOTS_URL = 'https://hina0206.github.io/hnt.graduate.travel.spot/spots.json';
+    const prefSlug = document.body.getAttribute('data-pref'); // ex: "hokkaido"
+    const container = document.getElementById('spot-cards');
+  
+    fetch(SPOTS_URL)
+      .then(r => {
+        if (!r.ok) throw new Error('spots.json を取得できませんでした');
+        return r.json();
+      })
+      .then(spots => {
+        // この都道府県のスポットだけ抽出
+        const filtered = spots.filter(s => s.prefectureRomaji.toLowerCase() === prefSlug.toLowerCase());
+  
+        if (filtered.length === 0) {
+          container.innerHTML = '<p class="no-result">この都道府県のスポットはまだ登録されていません。</p>';
+          return;
+        }
+  
+        // 各スポットのカードを生成
+        filtered.forEach(spot => {
+          const col = document.createElement('div');
+          col.className = 'card-item';
+  
+          // 画像パスは spot リポジトリに合わせる
+          const img = `<div class="thumb">
+                         <img src="https://hina0206.github.io/hnt.graduate.travel.spot/images/${spot.id}/main.jpg" alt="${spot.name}">
+                       </div>`;
+  
+          // タグボタン
+          const tags = (spot.tags || []).map(tag =>
+            `<button class="tag" onclick="event.stopPropagation(); location.href='https://hina0206.github.io/hnt.graduate.travel/tag.html?tag=${encodeURIComponent(tag)}'">
+               ${tag}
+             </button>`
+          ).join('');
+  
+          // カードの中身
+          <!-- カードの中身 -->
+          col.innerHTML = `
+            <div class="card">
+              ${img}
+              <div class="card-body">
+                <h3 class="card-title">${spot.name}</h3>
+                <p class="card-pref" onclick="event.stopPropagation(); window.location.href='https://hina0206.github.io/hnt.graduate.travel.pref/${spot.prefectureRomaji}.html'">
+                  ${spot.prefecture}
+                </p>
+                <div class="card-tags">
+                  ${tags}
+                </div>
+              </div>
+            </div>
+          `;
+
+  
+          container.appendChild(col);
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        container.innerHTML = '<p class="no-result">データの読み込みに失敗しました。</p>';
+      });
+  })();
+  </script>
+
+</body>
+</html>
