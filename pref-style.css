@@ -50,6 +50,19 @@ body {
   width: 60px; /* 左右バランスを揃える */
 }
 
+.back-to-list {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #555;
+  padding: 6px 10px;
+}
+
+.back-to-list:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+
 
 /* ===============================
    都道府県カバー写真
