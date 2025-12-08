@@ -57,9 +57,14 @@ main {
 }
 
 .header-right {
-  width: 140px; /* 左右バランスを揃える */
-  text-align: right;
+  white-space: nowrap;  /* 改行しない */  
+  padding: 0.4rem 0.6rem; /* 余白を少しだけ小さくする */
+  flex-shrink: 1; /* はみ出し防止 */
+  max-width: 240px; /* 文字の幅を制御 */
+  text-overflow: ellipsis; /* どうしてもオーバーする場合の保険 */
+  overflow: hidden;
 }
+
 
 .back-to-list {
   white-space: nowrap; /* ← 改行させない */
