@@ -11,24 +11,45 @@ body {
 /* ===============================
    ヘッダー：白＋薄グレーライン
 =============================== */
+/* ========== 共通ヘッダー ========== */
+
 .site-header {
-  background: #ffffff;
-  color: #333;
-  padding: 1rem;
-  border-bottom: 1px solid #e5e5e5;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  background-color: #f6f6f8; /* 白系だけど境界は見える */
+  border-bottom: 1px solid #ddd;
+  padding: 0.6rem 1rem;
 }
-.site-header .header-inner {
+
+.header-inner {
+  max-width: 1000px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  max-width: 900px;
-  margin: 0 auto;
+  align-items: center;
 }
-.site-header a {
-  color: #333;
+
+.site-title {
+  font-size: 1.4rem;
   text-decoration: none;
+  color: #333;
   font-weight: bold;
 }
+
+.header-title {
+  font-size: 1.1rem;
+  color: #444;
+  text-align: center;
+  flex: 1;
+}
+
+/* タイトルがない時は高さだけ確保 */
+.header-title:empty {
+  visibility: hidden;
+}
+
+.header-right {
+  width: 60px; /* 左右バランスを揃える */
+}
+
 
 /* ===============================
    都道府県カバー写真
