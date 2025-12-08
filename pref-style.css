@@ -1,15 +1,22 @@
+/* ===============================
+   共通：白×柔グレー基調
+=============================== */
 body {
   font-family: "Noto Sans JP", sans-serif;
   margin: 0;
-  background: #fff;
+  background: #fafafa;
   color: #333;
 }
 
-/* ヘッダー */
+/* ===============================
+   ヘッダー：白＋薄グレーライン
+=============================== */
 .site-header {
-  background: #000;
-  color: #fff;
+  background: #ffffff;
+  color: #333;
   padding: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 .site-header .header-inner {
   display: flex;
@@ -18,12 +25,14 @@ body {
   margin: 0 auto;
 }
 .site-header a {
-  color: #fff;
+  color: #333;
   text-decoration: none;
   font-weight: bold;
 }
 
-/* 都道府県カバー */
+/* ===============================
+   都道府県カバー写真
+=============================== */
 .pref-cover {
   height: 200px;
   background-size: cover;
@@ -33,15 +42,16 @@ body {
   justify-content: center;
 }
 .pref-cover h1 {
-  color: white;
+  color: #fff;
   font-size: 2rem;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.35);
   padding: 0.5rem 1rem;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
-/* スポットカード */
-/* カードグリッド */
+/* ===============================
+   スポットカード
+=============================== */
 #spot-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -51,33 +61,32 @@ body {
 
 /* カード全体 */
 .card-item .card {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
   overflow: hidden;
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
 }
-
 .card-item .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
 }
 
-/* 画像部分 */
+/* 画像 */
 .card-item .thumb {
   width: 100%;
-  height: 180px; /* 高さ固定 */
+  height: 180px;
   overflow: hidden;
 }
-
 .card-item .thumb img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 縦横比を保ったまま枠に合わせる */
+  object-fit: cover;
   display: block;
 }
 
-/* カード本文 */
+/* 本文 */
 .card-body {
   padding: 0.8rem 1rem;
 }
@@ -91,15 +100,17 @@ body {
   color: #666;
 }
 
+/* ===============================
+   タグ（統一された青系）
+=============================== */
 .card-tags {
   margin-top: 0.5rem;
 }
 
 .tag {
   display: inline-block;
-  background-color: #ddd;   /* 通常の淡い灰色 */
-  color: #333;              /* 文字は濃いグレー */
-  border: none;             /* 枠線なし */
+  background-color: #e6f2ff; /* 薄い青に統一 */
+  color: #0077cc;
   border-radius: 12px;
   padding: 0.2rem 0.6rem;
   font-size: 0.8rem;
@@ -109,10 +120,12 @@ body {
 }
 
 .tag:hover {
-  background-color: #bbb;   /* hover 時に濃いめの灰色 */
+  background-color: #cfe7ff;
 }
 
-
+/* ===============================
+   もっと見るボタン（カード内）
+=============================== */
 .card-cta {
   margin-top: 0.5rem;
 }
@@ -120,7 +133,7 @@ body {
 .card-cta .btn {
   display: inline-block;
   padding: 6px 12px;
-  background-color: #4a90e2;
+  background-color: #4ea5ff; /* 統一アクセント青 */
   color: white;
   text-decoration: none;
   border-radius: 6px;
@@ -129,10 +142,12 @@ body {
 }
 
 .card-cta .btn:hover {
-  background-color: #357ABD;
+  background-color: #2f8fe6;
 }
 
-/* カードがない場合 */
+/* ===============================
+   該当なし
+=============================== */
 .no-result {
   text-align: center;
   color: #777;
@@ -140,10 +155,13 @@ body {
   margin-top: 30px;
 }
 
-/* フッター */
+/* ===============================
+   フッター
+=============================== */
 .site-footer {
-  background: #888;
-  color: #fff;
+  background: #f0f0f0;
+  color: #333;
   text-align: center;
   padding: 1rem;
+  border-top: 1px solid #ddd;
 }
