@@ -51,11 +51,14 @@ body {
 }
 
 .back-to-list {
+  white-space: nowrap; /* ← 改行させない */
   font-size: 0.9rem;
   text-decoration: none;
   color: #555;
   padding: 6px 10px;
+  display: inline-block;
 }
+
 
 .back-to-list:hover {
   text-decoration: underline;
