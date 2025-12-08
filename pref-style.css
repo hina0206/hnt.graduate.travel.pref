@@ -8,6 +8,14 @@ body {
   color: #333;
 }
 
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+
 /* ===============================
    ヘッダー：白＋薄グレーライン
 =============================== */
@@ -25,6 +33,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .site-title {
@@ -47,7 +57,8 @@ body {
 }
 
 .header-right {
-  width: 60px; /* 左右バランスを揃える */
+  width: 140px; /* 左右バランスを揃える */
+  text-align: right;
 }
 
 .back-to-list {
