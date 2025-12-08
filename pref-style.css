@@ -109,8 +109,9 @@ body {
 
 .tag {
   display: inline-block;
-  background-color: #e6f2ff; /* 薄い青に統一 */
+  background-color: #e6f2ff;
   color: #0077cc;
+  border: none;            /* ← これだけ追加すれば枠は消える！ */
   border-radius: 12px;
   padding: 0.2rem 0.6rem;
   font-size: 0.8rem;
@@ -118,6 +119,7 @@ body {
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
+
 
 .tag:hover {
   background-color: #cfe7ff;
